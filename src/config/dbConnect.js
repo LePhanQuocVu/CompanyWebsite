@@ -12,15 +12,14 @@ const config = {
   }
 };
 
-async function connectDB() {
-  try {
-    await sql.connect(config);
-    console.log('Connected to MSSQL');
-  } catch (err) {
-    console.error('Connection failed:', err);
-  }
-}
+const poolPromise = new sql.ConnectionPool(config)
+  .connect()
+  .then(pool => {
+    console.log('MSSQL Connected');
+    return pool;
+  })
+  .catch(err => console.log('DB Connection Failed:', err));
 
 module.exports = {
-    sql, connectDB
-}
+  sql, poolPromise
+};
