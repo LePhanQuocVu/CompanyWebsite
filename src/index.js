@@ -1,9 +1,7 @@
 var express = require('express')
+const authRoutes = require('./routes/authRoutes');
 var app = express()
 const port = 3000
-
-const poolPromise = require('./config/dbConnect')
-
 
 app.use(express.json());
 
