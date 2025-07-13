@@ -7,7 +7,7 @@ export const MainLayout = () => {
       <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
           <Header />
           <main style={{ flex: 1, padding: '1rem' }}>
-              <Outlet /> {/* nơi các page sẽ được render */}
+              <Outlet /> 
           </main>
           <Footer />
       </div>
